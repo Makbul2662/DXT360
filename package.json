@@ -1,0 +1,21 @@
+{
+  "name": "cypress",
+  "version": "1.0.0",
+  "description": "dimy tech indonesia",
+  "main": "index.js",
+  "private": "true",
+  "scripts": {
+    "test": "cypress open",
+    "start": "cypress run"
+  },
+  "author": "abul",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.10.0",
+    "cypress-file-upload": "^5.0.8"
+  },
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^18.0.6",
+    "cypress-plugin-tab": "^1.0.5"
+  }
+}
