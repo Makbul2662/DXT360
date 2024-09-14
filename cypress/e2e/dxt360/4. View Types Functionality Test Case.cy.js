@@ -16,8 +16,7 @@ describe('Verify the switch between Slide, Table and TV', () => {
         })
     })
 
-    it('Redirect the user to DXT360 Trendwatch and analytics dashboard', () => {
-        // Pilih DXT360 Trendwatch dashboard
+    it('Redirect the user to DXT360 Trendwatch dashboard and switch displayed mode', () => {
         cy.wait(5000).contains('main')
         const findAndClickButton = (selector) => {
             cy.get('main').then(($main) => {

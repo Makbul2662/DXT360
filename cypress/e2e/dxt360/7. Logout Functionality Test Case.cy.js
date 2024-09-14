@@ -16,7 +16,7 @@ describe('Verify the logout functionally', () => {
         })
     })
 
-    it('Redirect the user to DXT360 Trendwatch and analytics dashboard', () => {
+    it('Redirect the user to DXT360 Trendwatch and analytics dashboard then logout', () => {
         // Pilih DXT360 Trendwatch dashboard
         cy.wait(5000).contains('main')
         const findAndClickButton = (selector) => {

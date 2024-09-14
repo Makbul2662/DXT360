@@ -16,7 +16,7 @@ describe('On application switcher, choose DXT360 Trendwatch', () => {
       })
   })
   
-    it('Redirect the user to DXT360 Trendwatch and analytics dashboard', () => {
+    it('Redirect the user to DXT360 Trendwatch dashboard', () => {
       // Pilih DXT360 Trendwatch dashboard
       cy.wait(5000).contains('main')
       const findAndClickButton = (selector) => {

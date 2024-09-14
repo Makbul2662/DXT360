@@ -1,9 +1,9 @@
     describe('Verify the login functionality with valid and invalid credentials', () => {
       before(() => {
         cy.visit('https://login-demo360.sonarplatform.com')
-        cy.get('input[type="text"]').type('qa.test.trendwatch@sonar.id', { delay: 70 });
-        cy.get('input[type="password"]').type('tR3nD_watc#');
-        cy.get('.transition-colors').should('be.visible').and('be.enabled');
+        cy.get('input[type="text"]').type('qa.test.trendwatch@sonar.id', { delay: 70 })
+        cy.get('input[type="password"]').type('tR3nD_watc#')
+        cy.get('.transition-colors').should('be.visible').and('be.enabled')
         cy.get('button[type="submit"]').click()
         cy.intercept('POST', '**/callback/credentials').as('Login')
         cy.get('main').should('be.visible')
@@ -13,9 +13,9 @@
           cy.wait('@Login').then(({ response }) => {
             expect(response.statusCode).to.eq(200)
           })
+          cy.reload()
       })
     
-  
     it('Appropriate error message is displayed, and the user is not logged in', () => {
       cy.get('input[type="text"]').type('qa.test.trendwatch@sonar.id',{delay: 50})
       cy.get('input[type="password"]').type('ini password salah')
@@ -23,9 +23,13 @@
       cy.get('button[type="submit"]').click({force:true})
       cy.get('.transition-colors').should('be.visible')
       cy.wait(3000).get('button[type="submit"]').click({force:true})
+      cy.intercept('POST', '**/callback/credentials').as('FailedLogin')
       // Verifikasi bahwa pesan error muncul
       cy.wait(3000).get('.mb-10').should('be.visible')
         .and('contain', 'We could not find that email and password combination').as('Error message is displayed')
+        cy.wait('@FailedLogin').then(({ response }) => {
+          expect(response.statusCode).to.eq(401)
+        })
 
     })
   })

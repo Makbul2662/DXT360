@@ -1,4 +1,4 @@
-describe('Login functionality and navigation to dashboards', () => {
+describe(' Verify that the correct number of posts (20) is displayed.', () => {
   
     before(() => {
       cy.visit('https://login-demo360.sonarplatform.com')
@@ -16,7 +16,7 @@ describe('Login functionality and navigation to dashboards', () => {
         })
     })
   
-    it('Redirect the user to DXT360 Trendwatch and analytics dashboard', () => {
+    it('Redirect the user to DXT360 Trendwatch dashboard and count the number of feed item displayed', () => {
       // Pilih DXT360 Trendwatch dashboard
       cy.wait(5000).contains('main')
       const findAndClickButton = (selector) => {

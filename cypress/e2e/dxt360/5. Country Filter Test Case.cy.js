@@ -16,7 +16,7 @@ describe('Login functionality and navigation to dashboards', () => {
         })
     })
   
-    it('Redirect the user to DXT360 Trendwatch and analytics dashboard', () => {
+    it('Redirect the user to DXT360 Trendwatch dashboard and navigate to a channel then select country', () => {
       // Pilih DXT360 Trendwatch dashboard
       cy.wait(5000).contains('main')
       const findAndClickButton = (selector) => {

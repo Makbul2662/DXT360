@@ -16,8 +16,7 @@ describe('Verify that the user can navigate between different channel tabs', () 
     })
   })
 
-  it('Redirect the user to DXT360 Trendwatch and analytics dashboard', () => {
-    // Pilih DXT360 Trendwatch dashboard
+  it('Redirect the user to DXT360 Trendwatch dashboard and click each channel tab', () => {
     cy.wait(5000).contains('main')
     const findAndClickButton = (selector) => {
       cy.get('main').then(($main) => {
