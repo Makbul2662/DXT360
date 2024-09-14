@@ -15,7 +15,6 @@ describe('Verify the logout functionally', () => {
             expect(response.statusCode).to.eq(200)
         })
     })
-
     it('Redirect the user to DXT360 Trendwatch and analytics dashboard then logout', () => {
         // Pilih DXT360 Trendwatch dashboard
         cy.wait(5000).contains('main')

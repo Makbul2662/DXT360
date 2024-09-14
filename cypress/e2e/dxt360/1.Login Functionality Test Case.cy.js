@@ -14,8 +14,7 @@
             expect(response.statusCode).to.eq(200)
           })
           cy.reload()
-      })
-    
+      }) 
     it('Appropriate error message is displayed, and the user is not logged in', () => {
       cy.get('input[type="text"]').type('qa.test.trendwatch@sonar.id',{delay: 50})
       cy.get('input[type="password"]').type('ini password salah')
