@@ -54,7 +54,7 @@ describe('Verify the logout functionally', () => {
             })
         cy.get('.group.relative.z-50').eq(1).should('be.visible')
         cy.get('.group.relative.z-50').eq(1).realHover('mouse')
-        cy.get('.space-y-2 > button').click().as('Button Logout')
+        cy.wait(5000).get('.space-y-2 > button').click().as('Button Logout')
         cy.get('[id^=headlessui-dialog-panel-]').should('be.visible').as('Pop Up Logout')
         cy.get('[id^=headlessui-dialog-panel-] > .flex.gap-2.mb-2 > button:nth-child(2)').click().as('Confirm Logout')
         cy.url().should('include', '//login-demo360.sonarplatform.com').as('Back to login page')
