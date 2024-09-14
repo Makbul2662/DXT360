@@ -34,6 +34,9 @@ Make sure you have the following installed:
 
 ### Installation
 
+- cd /your/project/path
+- npm install cypress --save-dev
+
 Clone the repository and install the dependencies.
 
 ```bash

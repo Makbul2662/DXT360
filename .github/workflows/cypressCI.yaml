@@ -5,11 +5,15 @@ jobs:
     name: every OS
     strategy:
       matrix:
+<<<<<<< Updated upstream
         # run 3 copies of the current job in parallel
         # and they will load balance all specs
         os: ['ubuntu-latest', 'windows-latest', 'macos-latest']
         machines: [1, 2, 3]
     runs-on: ${{ matrix.os }}
+=======
+        containers: [10,11,12] # Uses 2 parallel instances
+>>>>>>> Stashed changes
     steps:
       - name: Checkout
         uses: actions/checkout@v4
