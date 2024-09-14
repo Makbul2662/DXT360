@@ -23,5 +23,9 @@ on:
         - name: Install dependencies
           run: npm install
 
-        - name: Run Cypress tests
+        - name: Run Cypress Tests
           run: npx cypress run
+
+        - name: Run Cypress Tests report
+          run: npx nyc report --reporter=text-summary
+
