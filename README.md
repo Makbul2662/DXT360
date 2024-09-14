@@ -1,4 +1,4 @@
-# Cypress Test Automation for Tech Indonesia
+# Cypress Test Automation
 
 This repository contains automated end-to-end (E2E) tests for platform using [Cypress](https://www.cypress.io/). It includes several plugins for advanced functionality, such as file uploads, real event simulations, and BDD support with Cucumber.
 
