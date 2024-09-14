@@ -1,0 +1,6 @@
+{
+    "correctemail": "qa.test.trendwatch@sonar.id",
+    "correctpassword": "tR3nD_watc#",
+    "wrongemail": "notemailvalid@sonar.id",
+    "wrongpassword": "password"
+  }

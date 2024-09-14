@@ -1,7 +1,7 @@
 {
   "name": "cypress",
   "version": "1.0.0",
-  "description": "dimy tech indonesia",
+  "description": "tech indonesia",
   "main": "index.js",
   "private": "true",
   "scripts": {
@@ -11,11 +11,13 @@
   "author": "abul",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^13.10.0",
+    "cypress": "^13.14.2",
     "cypress-file-upload": "^5.0.8"
   },
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^18.0.6",
-    "cypress-plugin-tab": "^1.0.5"
+    "cypress-if": "^1.12.6",
+    "cypress-plugin-tab": "^1.0.5",
+    "cypress-real-events": "^1.13.0"
   }
 }

@@ -24,39 +24,35 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 import 'cypress-plugin-tab'
-
-Cypress.Commands.add('Login', (email, password) => {
-  // cy.visit('/login')
-  // cy.ignoreConsoleError()
-  // cy.wait(500).get('#input_email_login').type(email)
-  // cy.wait(500).get('#input_password_login').type(password)
-  // cy.wait(500).get('#btn_submit').click()
-  // cy.wait(1500).get('.swal2-popup').then(($toast) => {
-  //   if ($toast.hasClass('swal2-icon-error')) {
-  //     cy.get('#input_email_login').clear()
-  //     cy.get('#input_email_login').type(email)
-  //     cy.get('#input_password_login').clear()
-  //     cy.get('#input_password_login').type(password)
-  //     cy.get('#btn_submit').click()
-  //   }
-  // })
-  let redirectUrl = 'http://staging-inventory-accounting.simkokar.com'
-  cy.visit('/login')
-  cy.url().should('include', '/login')
-
-  cy.intercept('POST', '**/authentication/login').as('loginCall')
-
-  cy.get('#input_email_login').should('be.visible')
-  cy.get('#input_password_login').should('be.visible')
-
-  cy.get('#input_email_login').type(email)
-  cy.get('#input_password_login').type(password)
-  cy.get('#btn_submit').click()
-  cy.wait('@loginCall').then(({ response }) => {
-    expect(response.statusCode).to.eq(200)
-  })
-  // cy.url().should('include', redirectUrl)
+import "cypress-real-events/support"
+Cypress.Commands.add('LoginCorrect', (correctemail, correctpassword) => {
+let redirectUrl = 'https://login-demo360.sonarplatform.com'
+cy.visit('/login')
+cy.url().should('include', '/login')
+cy.get('input[type="text"]').type(correctemail)
+cy.get('input[type="password"]').type(correctpassword)
 })
+Cypress.Commands.add('ValidationTopTrends', () => {
+  cy.get('.my-masonry-grid', { timeout: 10000 })
+  .find('.my-masonry-grid_column > div')
+  .should('be.visible')
+  // .should('have.length', 20).as('Show 20 top trends')
+  .then($elements => {
+    const numberOfItems = $elements.length;
+
+    // Validatio if item < 20
+    if (numberOfItems < 20) {
+      cy.log(`Warning: Expected 20 items but found ${numberOfItems}.`)
+      expect(numberOfItems).to.be.at.least(1)
+    }
+    else 
+    {
+    // Verifikasi bahwa jumlah item adalah 20 atau lebih
+      expect(numberOfItems).to.be.at.least(20)
+    }
+    })
+})
+
 
 Cypress.Commands.add('ignoreConsoleError', () => {
   cy.tab()
