@@ -37,7 +37,7 @@ describe('Verify the switch between Slide, Table and TV', () => {
                 findAndClickButton(':nth-child(2) > .p-4 > .flex > .bg-primary-600');
             } else {
                 cy.log('Checking nth-child(3)...');
-                findAndClickButton(':nth-child(3) > .p-4 > .flex > .bg-primary-600');
+                findAndClickButton(':nth-child(3) > .p-4 > .flex > .bg-primary-600')
             }
         })
         cy.wait(5000).url().should('include', '/sources?channel=twitter')
