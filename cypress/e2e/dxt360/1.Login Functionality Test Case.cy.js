@@ -24,7 +24,7 @@
       cy.get('.transition-colors').should('be.visible')
       cy.wait(3000).get('button[type="submit"]').click({force:true})
       cy.intercept('POST', '**/callback/credentials').as('FailedLogin')
-      // Verifikasi bahwa pesan error muncul
+      // Validate error message show up
       cy.wait(3000).get('.mb-10').should('be.visible')
         .and('contain', 'We could not find that email and password combination').as('Error message is displayed')
         cy.wait('@FailedLogin').then(({ response }) => {

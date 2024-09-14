@@ -25,13 +25,6 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 import 'cypress-plugin-tab'
 import "cypress-real-events/support"
-Cypress.Commands.add('LoginCorrect', (correctemail, correctpassword) => {
-let redirectUrl = 'https://login-demo360.sonarplatform.com'
-cy.visit('/login')
-cy.url().should('include', '/login')
-cy.get('input[type="text"]').type(correctemail)
-cy.get('input[type="password"]').type(correctpassword)
-})
 Cypress.Commands.add('ValidationTopTrends', () => {
   cy.get('.my-masonry-grid', { timeout: 10000 })
   .find('.my-masonry-grid_column > div')
@@ -39,15 +32,14 @@ Cypress.Commands.add('ValidationTopTrends', () => {
   // .should('have.length', 20).as('Show 20 top trends')
   .then($elements => {
     const numberOfItems = $elements.length;
-
-    // Validatio if item < 20
+    // Validatite if item < 20
     if (numberOfItems < 20) {
       cy.log(`Warning: Expected 20 items but found ${numberOfItems}.`)
       expect(numberOfItems).to.be.at.least(1)
     }
     else 
     {
-    // Verifikasi bahwa jumlah item adalah 20 atau lebih
+    // Validate item has 20 item
       expect(numberOfItems).to.be.at.least(20)
     }
     })
